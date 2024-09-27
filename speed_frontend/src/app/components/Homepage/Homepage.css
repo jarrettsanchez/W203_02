@@ -2,7 +2,7 @@
 .sidenav 
 {
     width: 240px;
-    background-color: rgb(231, 216, 247);
+    background-color: rgb(235, 226, 244);
     position: absolute;
     height: 884px;
     padding: 0 10px;
@@ -37,8 +37,37 @@
 
 .sidenav h3
 {
-    margin-left: 68px;
+    margin-left: 50px;
+    font-size: 30px;
 }
+
+/* Sidebar button styling */
+.sidenav button {
+    display: flex;
+    align-items: center; 
+    gap: 10px; 
+    background: none;
+    border: none; 
+    font-size: 17px; 
+    cursor: pointer; 
+    padding: 10px; 
+    color: black; 
+    text-align: left;
+    width: 100%; 
+    border-radius: 8px; 
+}
+
+/* Reset margin for icons if any */
+.sidenav button svg {
+    margin: 0; 
+}
+
+/* On hover for the buttons */
+.sidenav button:hover,
+.sidenav button:focus {
+    background-color: rgb(215, 235, 248);
+}
+
 
 /*Spacing on top of the side bar labels*/
 ul
