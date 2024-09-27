@@ -1,0 +1,9 @@
+.main-background {
+    background-color: rgb(235, 226, 244); /* Set the desired color */
+    height: 100vh; /* Full height */
+  }
+  
+  html, body {
+    overflow: hidden;
+  }
+  

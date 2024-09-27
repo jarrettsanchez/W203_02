@@ -3,7 +3,7 @@
 // import './review.css';
 
 
-const Review = () => {
+const review = () => {
     return (
         <div className='background'>
             <div className='container'>
@@ -13,4 +13,4 @@ const Review = () => {
     );
 };
 
-export default Review;
+export default review;
