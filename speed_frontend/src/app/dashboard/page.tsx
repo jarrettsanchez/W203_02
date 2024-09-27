@@ -77,9 +77,9 @@ export default function DashboardPage() {
                   submission.status === 'approved' ? 'bg-green-100 text-green-800' :
                   'bg-red-100 text-red-800'
                 }`}>
-                  {submission.status === 'pending' && <FaClipboardList className="inline mr-1" />}
-                  {submission.status === 'approved' && <FaCheckCircle className="inline mr-1" />}
-                  {submission.status === 'rejected' && <FaTimesCircle className="inline mr-1" />}
+                  {submission.status === 'pending' && <FaClipboardList size={12} />}
+                  {submission.status === 'approved' && <FaCheckCircle size={12} />}
+                  {submission.status === 'rejected' && <FaTimesCircle size={12} />}
                   {submission.status}
                 </span>
               </li>

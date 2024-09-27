@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { FaSearch, FaFilter } from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
 
 type Article = {
   id: string;
@@ -67,7 +67,9 @@ export default function ArticlesPage() {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <FaSearch className="absolute right-3 top-3 text-gray-400" />
+            <span className="absolute right-3 top-3 text-gray-400">
+              <FaSearch size={16} />
+            </span>
           </div>
         </div>
         <select

@@ -44,13 +44,19 @@ export default function ModeratePage() {
                 onClick={() => handleModeration(article.id, 'approve')}
                 className="bg-green-500 text-white px-4 py-2 rounded mr-2 hover:bg-green-600"
               >
-                <FaCheck className="inline-block mr-2" /> Approve
+                <span className="inline-block mr-2">
+                  <FaCheck size={16} />
+                </span>
+                 Approve
               </button>
               <button
                 onClick={() => handleModeration(article.id, 'reject')}
                 className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
               >
-                <FaTimes className="inline-block mr-2" /> Reject
+                <span className="inline-block mr-2">
+                  <FaTimes size={16} />
+                </span>
+                 Reject
               </button>
             </div>
           </div>

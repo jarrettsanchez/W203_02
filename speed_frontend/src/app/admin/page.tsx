@@ -17,7 +17,6 @@ export default function AdminPage() {
 
   useEffect(() => {
     // TODO: Fetch all articles
-    // This is a mock implementation
     setArticles([
       { id: '1', title: 'Article 1', authors: 'Author 1', journal: 'Journal 1', year: 2021 },
       { id: '2', title: 'Article 2', authors: 'Author 2', journal: 'Journal 2', year: 2022 },
@@ -67,7 +66,7 @@ export default function AdminPage() {
           </tr>
         </thead>
         <tbody>
-          {articles.map(article => (
+          {articles.map((article) => (
             <tr key={article.id}>
               <td className="border p-2">
                 {editingArticle?.id === article.id ? (
@@ -125,13 +124,19 @@ export default function AdminPage() {
                       onClick={handleSave}
                       className="bg-green-500 text-white px-2 py-1 rounded mr-2 hover:bg-green-600"
                     >
-                      <FaSave className="inline-block mr-1" /> Save
+                      <span className="inline mr-1">
+                      <FaSave size={16} />
+                    </span>
+                    Save
                     </button>
                     <button
                       onClick={handleCancel}
                       className="bg-gray-500 text-white px-2 py-1 rounded hover:bg-gray-600"
                     >
-                      <FaTimes className="inline-block mr-1" /> Cancel
+                      <span className="inline mr-1">
+                      <FaTimes size={16} />
+                    </span> 
+                    Cancel
                     </button>
                   </>
                 ) : (
@@ -140,13 +145,18 @@ export default function AdminPage() {
                       onClick={() => handleEdit(article)}
                       className="bg-blue-500 text-white px-2 py-1 rounded mr-2 hover:bg-blue-600"
                     >
-                      <FaEdit className="inline-block mr-1" /> Edit
+                      <span className="inline mr-1">
+                      <FaEdit size={16} />
+                    </span> Edit
                     </button>
                     <button
                       onClick={() => handleDelete(article.id)}
                       className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
                     >
-                      <FaTrash className="inline-block mr-1" /> Delete
+                    <span className="inline mr-1">
+                      <FaTrash size={16} />
+                    </span>
+                     Delete
                     </button>
                   </>
                 )}
