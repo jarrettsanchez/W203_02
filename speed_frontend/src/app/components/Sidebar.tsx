@@ -1,27 +1,44 @@
+'use client';
+
 import Link from 'next/link';
-import { FaHome, FaNewspaper, FaDatabase, FaUpload, FaSignOutAlt } from 'react-icons/fa';
+import { usePathname } from 'next/navigation';
+import { FaHome, FaNewspaper, FaUpload, FaUserCog, FaDatabase, FaSignOutAlt } from 'react-icons/fa';
+
+const NavItem = ({ href, icon, children }: { href: string; icon: React.ReactNode; children: React.ReactNode }) => {
+  const pathname = usePathname();
+  const isActive = pathname === href;
+
+  return (
+    <Link 
+      href={href} 
+      className={`flex items-center space-x-3 py-2 px-4 rounded transition duration-200 ${
+        isActive ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+      }`}
+    >
+      {icon}
+      <span>{children}</span>
+    </Link>
+  );
+};
 
 export default function Sidebar() {
   return (
-    <aside className="bg-gray-800 text-white w-64 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out">
-      <h1 className="text-2xl font-semibold text-center mb-5">SPEED</h1>
-      <nav>
-        <Link href="/dashboard" className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
-          <FaHome className="inline-block mr-2" /> Dashboard
-        </Link>
-        <Link href="/articles" className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
-          <FaNewspaper className="inline-block mr-2" /> Articles
-        </Link>
-        <Link href="/database" className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
-          <FaDatabase className="inline-block mr-2" /> Database
-        </Link>
-        <Link href="/submissions" className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
-          <FaUpload className="inline-block mr-2" /> Submissions
-        </Link>
+    <aside className="bg-gray-800 text-white w-64 min-h-screen p-4">
+      <div className="mb-6">
+        <h1 className="text-2xl font-semibold">SPEED</h1>
+      </div>
+      <nav className="space-y-2">
+        <NavItem href="/dashboard" icon={<FaHome className="text-lg" />}>Dashboard</NavItem>
+        <NavItem href="/articles" icon={<FaNewspaper className="text-lg" />}>Articles</NavItem>
+        <NavItem href="/submit" icon={<FaUpload className="text-lg" />}>Submit</NavItem>
+        <NavItem href="/moderate" icon={<FaUserCog className="text-lg" />}>Moderate</NavItem>
+        <NavItem href="/analyze" icon={<FaDatabase className="text-lg" />}>Analyze</NavItem>
+        <NavItem href="/admin" icon={<FaUserCog className="text-lg" />}>Admin</NavItem>
       </nav>
-      <div className="absolute bottom-0 w-full">
-        <button className="block w-full py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
-          <FaSignOutAlt className="inline-block mr-2" /> Logout
+      <div className="absolute bottom-4">
+        <button className="flex items-center space-x-3 py-2 px-4 rounded transition duration-200 text-gray-300 hover:bg-gray-700 hover:text-white">
+          <FaSignOutAlt className="text-lg" />
+          <span>Logout</span>
         </button>
       </div>
     </aside>
