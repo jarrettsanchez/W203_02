@@ -1,9 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import ArticleList from './components/ArticleList';
-import SearchBar from './components/SearchBar';
-import Pagination from './components/Pagination';
+import ArticleList from '../components/ArticleList';
+import SearchBar from '../components/SearchBar';
+import Pagination from '../components/Pagination';
 import { FaBell } from 'react-icons/fa';
 
 export default function Home() {
