@@ -11,32 +11,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ArticleSchema = exports.Article = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
-const mongoose_2 = require("mongoose");
-let Article = class Article extends mongoose_2.Document {
+let Article = class Article {
 };
 exports.Article = Article;
 __decorate([
-    (0, mongoose_1.Prop)(),
+    (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", String)
-], Article.prototype, "name", void 0);
+], Article.prototype, "title", void 0);
 __decorate([
-    (0, mongoose_1.Prop)(),
+    (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", String)
 ], Article.prototype, "author", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Article.prototype, "journal_name", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", Number)
-], Article.prototype, "year", void 0);
+], Article.prototype, "publication_year", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", Number)
 ], Article.prototype, "volume", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
+    __metadata("design:type", Number)
+], Article.prototype, "pages", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", String)
 ], Article.prototype, "doi", void 0);
 __decorate([
-    (0, mongoose_1.Prop)(),
+    (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", String)
 ], Article.prototype, "status", void 0);
 exports.Article = Article = __decorate([

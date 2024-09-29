@@ -12,23 +12,39 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ArticlesService = void 0;
+exports.ArticleService = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
 const article_schema_1 = require("./article.schema");
-let ArticlesService = class ArticlesService {
+let ArticleService = class ArticleService {
     constructor(articleModel) {
         this.articleModel = articleModel;
     }
+    test() {
+        return 'Artlice route testing...';
+    }
     async findAll() {
-        return this.articleModel.find().exec();
+        return await this.articleModel.find().exec();
+    }
+    async findOne(id) {
+        return await this.articleModel.findById(id).exec();
+    }
+    async create(createArticleDto) {
+        return await this.articleModel.create(createArticleDto);
+    }
+    async update(id, createArticleDto) {
+        return await this.articleModel.findByIdAndUpdate(id, createArticleDto).exec();
+    }
+    async delete(id) {
+        const deletedArticle = await this.articleModel.findByIdAndDelete(id).exec();
+        return deletedArticle;
     }
 };
-exports.ArticlesService = ArticlesService;
-exports.ArticlesService = ArticlesService = __decorate([
+exports.ArticleService = ArticleService;
+exports.ArticleService = ArticleService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, mongoose_1.InjectModel)(article_schema_1.Article.name)),
     __metadata("design:paramtypes", [mongoose_2.Model])
-], ArticlesService);
-//# sourceMappingURL=articles.service.js.map
+], ArticleService);
+//# sourceMappingURL=article.service.js.map
