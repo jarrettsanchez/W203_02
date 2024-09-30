@@ -11,7 +11,16 @@ type Article = {
   year: number;
   sePractice: string;
   claim: string;
-  result: 'agree' | 'disagree' | 'inconclusive';
+  result: 'Approved' | 'Disapproved' | 'Pending';
+  image: string;
+};
+
+// Helper function to validate and ensure the result type matches the expected union
+const getValidatedResult = (result: string): 'Approved' | 'Disapproved' | 'Pending' => {
+  if (result === 'Approved' || result === 'Disapproved' || result === 'Pending') {
+    return result;
+  }
+  return 'Pending'; // Default value if result is not valid
 };
 
 export default function ArticlesPage() {
@@ -21,37 +30,110 @@ export default function ArticlesPage() {
   const [selectedClaim, setSelectedClaim] = useState('');
 
   useEffect(() => {
-    // TODO: Fetch actual data from your API
-    setArticles([
-      {
-        id: '1',
-        title: 'Impact of TDD on Code Quality',
-        authors: 'John Doe, Jane Smith',
-        journal: 'Journal of Software Engineering',
-        year: 2021,
-        sePractice: 'TDD',
-        claim: 'Improves code quality',
-        result: 'agree',
-      },
-      {
-        id: '2',
-        title: 'Effectiveness of Pair Programming',
-        authors: 'Alice Johnson, Bob Williams',
-        journal: 'IEEE Software',
-        year: 2020,
-        sePractice: 'Pair Programming',
-        claim: 'Increases productivity',
-        result: 'disagree',
-      },
-      // Add more mock articles as needed
-    ]);
+    // Fetch articles from localStorage or set initial data
+    const savedArticles = localStorage.getItem('articles');
+    if (savedArticles) {
+      const parsedArticles = JSON.parse(savedArticles);
+
+      // Validate each article's result property
+      const validatedArticles: Article[] = parsedArticles.map((article: any) => ({
+        ...article,
+        result: getValidatedResult(article.result),
+      }));
+
+      setArticles(validatedArticles);
+    } else {
+      const initialArticles: Article[] = [
+        {
+          id: '1',
+          title: 'Impact of TDD on Code Quality',
+          authors: 'John Doe, Jane Smith',
+          journal: 'Journal of Software Engineering',
+          year: 2021,
+          sePractice: 'TDD',
+          claim: 'Improves code quality',
+          result: 'Approved',
+          image: 'article1.jpg',
+
+
+        },
+        {
+          id: '2',
+          title: 'Effectiveness of Pair Programming',
+          authors: 'Alice Johnson, Bob Williams',
+          journal: 'IEEE Software',
+          year: 2020,
+          sePractice: 'Pair Programming',
+          claim: 'Increases productivity',
+          result: 'Disapproved',
+          image: 'https://via.placeholder.com/300x200.png?text=Article+Image',
+        },
+      ];
+      
+      setArticles(initialArticles);
+      localStorage.setItem('articles', JSON.stringify(initialArticles));
+    }
   }, []);
 
-  const filteredArticles = articles.filter(article => 
-    article.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
-    (selectedPractice === '' || article.sePractice === selectedPractice) &&
-    (selectedClaim === '' || article.claim === selectedClaim)
-  );
+  //Sort by options in dropdown box
+  const handleSort = (a: Article, b: Article) => {
+    if (selectedClaim === 'Title') {
+      return a.title.localeCompare(b.title);
+    }
+    if (selectedClaim === 'Authors') {
+      return a.authors.localeCompare(b.authors);
+    }
+    return 0;
+  };
+
+  
+
+  const filteredArticles = [...articles]
+    .filter(article => 
+      article.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
+      (selectedPractice === '' || article.sePractice === selectedPractice)
+    )
+    .sort(handleSort);
+
+  const handleResultChange = (id: string) => {
+    const updatedArticles = articles.map((article) =>
+      article.id === id
+        ? {
+            ...article,
+            result: getNextResult(article.result),
+          }
+        : article
+    );
+  
+    setArticles(updatedArticles);
+  
+    // Try saving to localStorage with error handling
+    try {
+      localStorage.setItem('articles', JSON.stringify(updatedArticles));
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "QuotaExceededError") {
+        console.error("Storage quota exceeded! Unable to save articles.");
+      } else {
+        console.error("An error occurred while saving to localStorage:", error);
+      }
+    }
+  };
+  
+
+  //Results 
+  const getNextResult = (currentResult: 'Approved' | 'Disapproved' | 'Pending'): 'Approved' | 'Disapproved' | 'Pending' => {
+    switch (currentResult) {
+      case 'Approved':
+        return 'Disapproved';
+      case 'Disapproved':
+        return 'Pending';
+      case 'Pending':
+        return 'Approved';
+      default:
+        return 'Pending';
+    }
+  };
+  
 
   return (
     <div className="container mx-auto">
@@ -73,7 +155,7 @@ export default function ArticlesPage() {
           </div>
         </div>
         <select
-          className="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="px-0 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={selectedPractice}
           onChange={(e) => setSelectedPractice(e.target.value)}
         >
@@ -87,46 +169,40 @@ export default function ArticlesPage() {
           value={selectedClaim}
           onChange={(e) => setSelectedClaim(e.target.value)}
         >
-          <option value="">All Claims</option>
-          <option value="Improves code quality">Improves code quality</option>
-          <option value="Increases productivity">Increases productivity</option>
-          {/* Add more claims as options */}
+          <option value="">Sort By</option>
+          <option value="Title">Title</option>
+          <option value="Authors">Authors</option>
         </select>
       </div>
 
-      <div className="bg-white shadow-md rounded-lg overflow-hidden">
-        <table className="min-w-full">
-          <thead className="bg-gray-100">
-            <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Authors</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Year</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">SE Practice</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Claim</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Result</th>
-            </tr>
-          </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
-            {filteredArticles.map((article) => (
-              <tr key={article.id}>
-                <td className="px-6 py-4 whitespace-nowrap">{article.title}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{article.authors}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{article.year}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{article.sePractice}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{article.claim}</td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <span className={`px-2 py-1 rounded-full text-xs ${
-                    article.result === 'agree' ? 'bg-green-100 text-green-800' :
-                    article.result === 'disagree' ? 'bg-red-100 text-red-800' :
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {filteredArticles.map((article) => (
+          <div key={article.id} className="bg-white shadow-md rounded-lg overflow-hidden">
+            <img
+              src={article.image}
+              alt={article.title}
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-4">
+              <h3 className="text-lg font-semibold">{article.title}</h3>
+              <p className="text-sm text-gray-600">{article.authors}</p>
+              <p className="mt-2 text-gray-700">{article.claim}</p>
+              <div className="mt-4">
+                {/* Status button styled as a label */}
+                <span
+                  onClick={() => handleResultChange(article.id)}
+                  className={`cursor-pointer px-2 py-1 rounded-full text-xs ${
+                    article.result === 'Approved' ? 'bg-green-100 text-green-800' :
+                    article.result === 'Disapproved' ? 'bg-red-100 text-red-800' :
                     'bg-yellow-100 text-yellow-800'
-                  }`}>
-                    {article.result}
-                  </span>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                  }`}
+                >
+                  {article.result}
+                </span>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
