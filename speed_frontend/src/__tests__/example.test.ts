@@ -1,6 +1,16 @@
-describe('Addition', () => {
-    it('knows that 2 and 2 make 4', () => {
-        expect(2 + 2).toBe(4);
-    });
-});
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import Home from '../app/page';
+
+describe('Home Page', () => {
+  test('renders without crashing', () => {
     
+    // Check if the page header is rendered
+    const headerElement = screen.getByText(/Articles Page/i);
+    expect(headerElement).toBeInTheDocument();
+    
+    // Check if the loading state is shown
+    const loadingElement = screen.getByText(/Loading articles.../i);
+    expect(loadingElement).toBeInTheDocument();
+  });
+});
