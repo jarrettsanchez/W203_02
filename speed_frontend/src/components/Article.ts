@@ -1,5 +1,3 @@
-
-
 export type Article = {
     _id?: string;
     title?: string;
@@ -10,7 +8,6 @@ export type Article = {
     pages?: string;
     doi?: string;
     status?: string;
-    submitted_date?: Date;
     updated_date?: Date;
 }
 
@@ -24,6 +21,5 @@ export const DefaultEmptyArticle: Article = {
     pages: '',
     doi: '',
     status: 'Pending',
-    submitted_date: undefined,
     updated_date: undefined,
 }

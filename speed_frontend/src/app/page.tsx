@@ -1,9 +1,8 @@
 'use client';
 
-export default function CreateArticle() {
-  return (
-    <main>
-      
-    </main>
-  );
-}
+const App = () => 
+  <div>
+    Test
+  </div>
+
+export default App;
