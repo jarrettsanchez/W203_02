@@ -14,7 +14,7 @@ export class Article {
   @Prop()
   journal_name: string;
 
-  @Prop()
+  @Prop(({required: true}))
   publication_year: number;
 
   @Prop()
@@ -28,6 +28,9 @@ export class Article {
 
   @Prop({required: true})
   status: string;
+
+  @Prop({type: Date, default: Date.now})
+  updated_date: Date;
 }
 
 export const ArticleSchema = SchemaFactory.createForClass(Article);
