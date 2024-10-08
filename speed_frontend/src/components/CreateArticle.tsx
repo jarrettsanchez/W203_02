@@ -21,7 +21,7 @@ const CreateArticleComponent = () => {
                 setArticle(DefaultEmptyArticle);
 
                 // push to /
-                navigate.push("/");
+                // navigate.push("/");
             })
             .catch((err) => {
                 console.log('Error from CreateArticle: ' + err);
@@ -33,14 +33,15 @@ const CreateArticleComponent = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-md-8 m-auto">
-                        <br />
+                    <br />
 
                     </div>
                     <div className="col-md-10 m-auto">
-                        <form noValidate onSubmit={onSubmit}>
+                        <form onSubmit={onSubmit}>
                             
                             <div className="form-group">
                                 <input
+                                    required
                                     type="text"
                                     placeholder="Title of the Article"
                                     name="title"
@@ -53,6 +54,7 @@ const CreateArticleComponent = () => {
 
                             <div className="form-group">
                                 <input
+                                    required
                                     type="text"
                                     placeholder="Author"
                                     name="author"
@@ -77,6 +79,7 @@ const CreateArticleComponent = () => {
 
                             <div className="form-group">
                                 <input
+                                    required
                                     type="string"
                                     placeholder="Publication Year"
                                     name="publication_year"
@@ -113,6 +116,7 @@ const CreateArticleComponent = () => {
 
                             <div className="form-group">
                                 <input
+                                    required
                                     type="text"
                                     placeholder="DOI"
                                     name="doi"

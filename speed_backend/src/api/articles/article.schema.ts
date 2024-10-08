@@ -26,7 +26,7 @@ export class Article {
   @Prop({required: true})
   doi: string;
 
-  @Prop({required: true})
+  @Prop()
   status: string;
 
   @Prop({type: Date, default: Date.now})

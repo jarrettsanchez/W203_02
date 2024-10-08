@@ -1,6 +1,7 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
 import Sidebar from '../components/Sidebar';
+import BootstrapClient from "@/components/BootstrapClient";
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -11,12 +12,13 @@ export const metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
       <body className={inter.className}>
+        <BootstrapClient />
         <div className="flex">
           <Sidebar />
           <main className="flex-1 p-8">
