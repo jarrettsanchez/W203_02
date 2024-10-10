@@ -9,6 +9,10 @@ export type Article = {
     doi?: string;
     status?: string;
     updated_date?: Date;
+    moderation_flag?: boolean;
+    analysis_flag?: boolean;
+    claims?: string;
+    evidence?: string;
 }
 
 export const DefaultEmptyArticle: Article = {
@@ -22,4 +26,7 @@ export const DefaultEmptyArticle: Article = {
     doi: '',
     status: 'Pending',
     updated_date: undefined,
+    moderation_flag: false,
+    claims: '',
+    evidence: '',
 }

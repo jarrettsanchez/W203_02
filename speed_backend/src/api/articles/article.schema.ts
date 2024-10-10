@@ -26,11 +26,23 @@ export class Article {
   @Prop({required: true})
   doi: string;
 
-  @Prop({required: true})
+  @Prop()
   status: string;
 
   @Prop({type: Date, default: Date.now})
   updated_date: Date;
+
+  @Prop ()
+  moderation_flag: boolean;
+
+  @Prop ()
+  analysis_flag: boolean;
+
+  @Prop ()
+  claims: string;
+
+  @Prop ()
+  evidence: string;
 }
 
 export const ArticleSchema = SchemaFactory.createForClass(Article);
