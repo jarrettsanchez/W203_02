@@ -27,6 +27,7 @@ export const DefaultEmptyArticle: Article = {
     status: 'Pending',
     updated_date: undefined,
     moderation_flag: false,
+    analysis_flag: false,
     claims: '',
     evidence: '',
 }
