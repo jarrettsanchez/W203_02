@@ -27,7 +27,7 @@ __decorate([
     __metadata("design:type", String)
 ], Article.prototype, "journal_name", void 0);
 __decorate([
-    (0, mongoose_1.Prop)(),
+    (0, mongoose_1.Prop)(({ required: true })),
     __metadata("design:type", Number)
 ], Article.prototype, "publication_year", void 0);
 __decorate([
@@ -43,9 +43,29 @@ __decorate([
     __metadata("design:type", String)
 ], Article.prototype, "doi", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
 ], Article.prototype, "status", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Date, default: Date.now }),
+    __metadata("design:type", Date)
+], Article.prototype, "updated_date", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", Boolean)
+], Article.prototype, "moderation_flag", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", Boolean)
+], Article.prototype, "analysis_flag", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Article.prototype, "claims", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Article.prototype, "evidence", void 0);
 exports.Article = Article = __decorate([
     (0, mongoose_1.Schema)()
 ], Article);

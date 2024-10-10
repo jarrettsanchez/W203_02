@@ -31,6 +31,18 @@ export class Article {
 
   @Prop({type: Date, default: Date.now})
   updated_date: Date;
+
+  @Prop ()
+  moderation_flag: boolean;
+
+  @Prop ()
+  analysis_flag: boolean;
+
+  @Prop ()
+  claims: string;
+
+  @Prop ()
+  evidence: string;
 }
 
 export const ArticleSchema = SchemaFactory.createForClass(Article);
