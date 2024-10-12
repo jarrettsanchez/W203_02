@@ -17,6 +17,8 @@ export class CreateArticleDto {
     claims: boolean;
     evidence: string;
     evidence_result: boolean;
+    participant: string;
+    research_type: string;
     analysis_flag: boolean;
 
     status: string;

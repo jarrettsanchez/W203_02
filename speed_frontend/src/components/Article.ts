@@ -16,6 +16,8 @@ export type Article = {
     claims?: boolean;
     evidence?: string;
     evidence_result?: boolean;
+    participant?: string;
+    research_type?: string;
     analysis_flag?: boolean;
 
     status?: string;
@@ -40,6 +42,8 @@ export const DefaultEmptyArticle: Article = {
     claims: undefined,
     evidence: '',
     evidence_result: undefined,
+    participant: '',
+    research_type: '',
     analysis_flag: false,
 
     status: 'Pending',

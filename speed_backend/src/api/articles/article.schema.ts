@@ -48,6 +48,12 @@ export class Article {
   evidence_result: boolean;
 
   @Prop()
+  participant: string;
+
+  @Prop()
+  research_type: string;
+
+  @Prop()
   analysis_flag: boolean;
 
   // article status - pending, accepted, or rejected
