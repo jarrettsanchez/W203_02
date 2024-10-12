@@ -1,7 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
-import { Article, DefaultEmptyArticle } from "./Article";
+import { Article, DefaultEmptyArticle } from "../Article";
 
 const CreateArticleComponent = () => {
     const navigate = useRouter();
@@ -68,7 +67,7 @@ const CreateArticleComponent = () => {
                             <div className="form-group">
                                 <input
                                     type="text"
-                                    placeholder="Journal Name"
+                                    placeholder="Journal/Conference Name"
                                     name="journal_name"
                                     className="form-control"
                                     value={article.journal_name}
@@ -128,7 +127,7 @@ const CreateArticleComponent = () => {
 
                             <button
                                 type="submit"
-                                className="btn btn-outline-warning btn-block mt-4 mb-4 w-100"
+                                className="btn btn-outline-primary btn-block mt-4 mb-4 w-100"
                             >
                                 Submit
                             </button>

@@ -1,6 +1,6 @@
 'use client';
 
-import ShowArticlesComponent from '@/components/ShowArticles';
+import ShowArticlesComponent from '@/components/show-articles/ShowArticles';
 
 export default function ShowArticles() {
   return (

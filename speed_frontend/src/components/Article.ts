@@ -1,5 +1,6 @@
 export type Article = {
     _id?: string;
+
     title?: string;
     author?: string;
     journal_name?: string;
@@ -7,16 +8,23 @@ export type Article = {
     volume?: string;
     pages?: string;
     doi?: string;
+
+    se_relevancy?: boolean;
+    peer_reviewed?: boolean;
+    moderation_flag?: boolean;
+
+    claims?: boolean;
+    evidence?: string;
+    evidence_result?: boolean;
+    analysis_flag?: boolean;
+
     status?: string;
     updated_date?: Date;
-    moderation_flag?: boolean;
-    analysis_flag?: boolean;
-    claims?: string;
-    evidence?: string;
 }
 
 export const DefaultEmptyArticle: Article = {
     _id: undefined,
+
     title: '',
     author: '',
     journal_name: '',
@@ -24,10 +32,16 @@ export const DefaultEmptyArticle: Article = {
     volume: '',
     pages: '',
     doi: '',
+
+    se_relevancy: undefined,
+    peer_reviewed: undefined,
+    moderation_flag: false,
+
+    claims: undefined,
+    evidence: '',
+    evidence_result: undefined,
+    analysis_flag: false,
+
     status: 'Pending',
     updated_date: undefined,
-    moderation_flag: false,
-    analysis_flag: false,
-    claims: '',
-    evidence: '',
 }

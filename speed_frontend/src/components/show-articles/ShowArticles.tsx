@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useParams, useRouter } from 'next/navigation';
 import axios from 'axios';
 
 interface Article {
@@ -17,7 +16,6 @@ interface Article {
 
 function ShowArticles() {
     const [articles, setArticles] = useState<Article[]>([]);
-    const navigate = useRouter();
 
     useEffect(() => {
         axios.get(`http://localhost:8082/api/articles/`)

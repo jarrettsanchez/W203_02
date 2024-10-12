@@ -9,7 +9,16 @@ export class CreateArticleDto {
     volume: string;
     pages: string;
     doi: string;
+    
+    se_relevancy: boolean;
+    peer_reviewed: boolean;
+    moderation_flag: boolean;
+
+    claims: boolean;
+    evidence: string;
+    evidence_result: boolean;
+    analysis_flag: boolean;
+
     status: string;
-    submitted_date: Date;
     updated_date: Date;
 }

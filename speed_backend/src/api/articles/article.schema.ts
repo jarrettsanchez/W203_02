@@ -5,6 +5,7 @@ export type ArticleDocument = HydratedDocument<Article>;
 
 @Schema()
 export class Article {
+  // submission properties
   @Prop({required: true})
   title: string;
 
@@ -26,23 +27,36 @@ export class Article {
   @Prop({required: true})
   doi: string;
 
+  // moderation properties
+  @Prop()
+  se_relevancy: boolean;
+
+  @Prop()
+  peer_reviewed: boolean;
+
+  @Prop()
+  moderation_flag: boolean;
+
+  // analysis properties
+  @Prop()
+  claims: boolean;
+
+  @Prop()
+  evidence: string;
+
+  @Prop()
+  evidence_result: boolean;
+
+  @Prop()
+  analysis_flag: boolean;
+
+  // article status - pending, accepted, or rejected
   @Prop()
   status: string;
 
+  // submission or updated date
   @Prop({type: Date, default: Date.now})
   updated_date: Date;
-
-  @Prop ()
-  moderation_flag: boolean;
-
-  @Prop ()
-  analysis_flag: boolean;
-
-  @Prop ()
-  claims: string;
-
-  @Prop ()
-  evidence: string;
 }
 
 export const ArticleSchema = SchemaFactory.createForClass(Article);

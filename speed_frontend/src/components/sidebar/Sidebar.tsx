@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FaHome, FaNewspaper, FaUpload, FaUserCog, FaDatabase, FaSignOutAlt } from 'react-icons/fa';
+import './Sidebar.css';
 
 const NavItem = ({ href, icon: Icon, children }: { href: string; icon: React.ElementType; children: React.ReactNode }) => {
   const pathname = usePathname();
