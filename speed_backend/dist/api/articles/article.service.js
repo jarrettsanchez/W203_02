@@ -22,7 +22,7 @@ let ArticleService = class ArticleService {
         this.articleModel = articleModel;
     }
     test() {
-        return 'Artlice route testing...';
+        return 'Article route testing...';
     }
     async findAll() {
         return await this.articleModel.find().exec();

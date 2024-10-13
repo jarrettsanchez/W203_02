@@ -8,12 +8,17 @@ export declare class Article {
     volume: number;
     pages: number;
     doi: string;
+    se_relevancy: boolean;
+    peer_reviewed: boolean;
+    moderation_flag: boolean;
+    claims: boolean;
+    evidence: string;
+    evidence_result: boolean;
+    participant: string;
+    research_type: string;
+    analysis_flag: boolean;
     status: string;
     updated_date: Date;
-    moderation_flag: boolean;
-    analysis_flag: boolean;
-    claims: string;
-    evidence: string;
 }
 export declare const ArticleSchema: import("mongoose").Schema<Article, import("mongoose").Model<Article, any, any, any, import("mongoose").Document<unknown, any, Article> & Article & {
     _id: import("mongoose").Types.ObjectId;

@@ -4,8 +4,6 @@ import CreateArticleComponent from "@/components/create-article/CreateArticle";
 
 export default function CreateArticle() {
   return (
-    <main>
-      <CreateArticleComponent/>
-    </main>
+    <CreateArticleComponent/>
   );
 }

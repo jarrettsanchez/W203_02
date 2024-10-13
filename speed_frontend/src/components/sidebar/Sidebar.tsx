@@ -26,7 +26,7 @@ export default function Sidebar() {
   return (
     <aside className="bg-gray-800 text-white w-64 min-h-screen p-4">
       <div className="mb-6">
-        <h1 className="text-2xl font-semibold">SPEED</h1>
+        <h1 className="text-3xl font-semibold text-center">SPEED</h1>
       </div>
       <nav className="space-y-2">
         <NavItem href="/dashboard" icon={FaHome}>Dashboard</NavItem>

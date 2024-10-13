@@ -21,6 +21,7 @@ export class CreateArticleDto {
     research_type: string;
     analysis_flag: boolean;
 
+    rejection_reason: string;
     status: string;
     updated_date: Date;
 }

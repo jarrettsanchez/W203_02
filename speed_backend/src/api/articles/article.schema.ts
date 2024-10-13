@@ -16,13 +16,13 @@ export class Article {
   journal_name: string;
 
   @Prop(({required: true}))
-  publication_year: number;
+  publication_year: string;
 
   @Prop()
-  volume: number;
+  volume: string;
 
   @Prop()
-  pages: number;
+  pages: string;
 
   @Prop({required: true})
   doi: string;
@@ -55,6 +55,10 @@ export class Article {
 
   @Prop()
   analysis_flag: boolean;
+
+  // rejection reason
+  @Prop()
+  rejection_reason: string;
 
   // article status - pending, accepted, or rejected
   @Prop()

@@ -14,13 +14,17 @@ const CreateArticleComponent = () => {
     const onSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         console.log(article);
-        fetch("http://localhost:8082/api/articles", {method: 'POST', headers: {"Content-Type": "application/json"}, body: JSON.stringify(article)})
+
+        fetch("http://localhost:8082/api/articles", {
+            method: 'POST', 
+            headers: {"Content-Type": "application/json"}, 
+            body: JSON.stringify(article)})
             .then((res) => {
                 console.log(res);
                 setArticle(DefaultEmptyArticle);
 
                 // push to /
-                // navigate.push("/");
+                navigate.push("/submit/success");
             })
             .catch((err) => {
                 console.log('Error from CreateArticle: ' + err);
@@ -32,9 +36,10 @@ const CreateArticleComponent = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-md-8 m-auto">
+                    <h3 className="text-center">Submit a Software Engineering Practice article to SPEED</h3>
                     <br />
-
                     </div>
+
                     <div className="col-md-10 m-auto">
                         <form onSubmit={onSubmit}>
                             
@@ -42,7 +47,7 @@ const CreateArticleComponent = () => {
                                 <input
                                     required
                                     type="text"
-                                    placeholder="Title of the Article"
+                                    placeholder="Article Title"
                                     name="title"
                                     className="form-control"
                                     value={article.title}
@@ -76,40 +81,43 @@ const CreateArticleComponent = () => {
                             </div>
                             <br />
 
-                            <div className="form-group">
-                                <input
-                                    required
-                                    type="string"
-                                    placeholder="Publication Year"
-                                    name="publication_year"
-                                    className="form-control"
-                                    value={article.publication_year}
-                                    onChange={onChange}
-                                />
-                            </div>
-                            <br />
+                            <div className="row">
+                                <div className="form-group col-sm">
+                                    <input
+                                        required
+                                        type="string"
+                                        placeholder="Publication Year"
+                                        name="publication_year"
+                                        className="form-control"
+                                        value={article.publication_year}
+                                        onChange={onChange}
+                                    />
+                                </div>
+                                <br />
 
-                            <div className="form-group">
-                                <input
-                                    type="text"
-                                    placeholder="Volume"
-                                    name="volume"
-                                    className="form-control"
-                                    value={article.volume}
-                                    onChange={onChange}
-                                />
-                            </div>
-                            <br />
+                                <div className="form-group col-sm">
+                                    <input
+                                        type="text"
+                                        placeholder="Volume"
+                                        name="volume"
+                                        className="form-control"
+                                        value={article.volume}
+                                        onChange={onChange}
+                                    />
+                                </div>
+                                <br />
 
-                            <div className="form-group">
-                                <input
-                                    type="text"
-                                    placeholder="Pages"
-                                    name="pages"
-                                    className="form-control"
-                                    value={article.pages}
-                                    onChange={onChange}
-                                />
+                                <div className="form-group col-sm">
+                                    <input
+                                        type="text"
+                                        placeholder="Pages"
+                                        name="pages"
+                                        className="form-control"
+                                        value={article.pages}
+                                        onChange={onChange}
+                                    />
+                                </div>
+                                <br />
                             </div>
                             <br />
 

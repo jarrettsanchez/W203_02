@@ -20,6 +20,7 @@ export type Article = {
     research_type?: string;
     analysis_flag?: boolean;
 
+    rejection_reason?: string;
     status?: string;
     updated_date?: Date;
 }
@@ -46,6 +47,7 @@ export const DefaultEmptyArticle: Article = {
     research_type: '',
     analysis_flag: false,
 
+    rejection_reason: '',
     status: 'Pending',
     updated_date: undefined,
 }
