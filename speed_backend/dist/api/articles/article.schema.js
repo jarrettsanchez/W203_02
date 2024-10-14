@@ -28,15 +28,15 @@ __decorate([
 ], Article.prototype, "journal_name", void 0);
 __decorate([
     (0, mongoose_1.Prop)(({ required: true })),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], Article.prototype, "publication_year", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], Article.prototype, "volume", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], Article.prototype, "pages", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ required: true }),
@@ -78,6 +78,10 @@ __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", Boolean)
 ], Article.prototype, "analysis_flag", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Article.prototype, "rejection_reason", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)

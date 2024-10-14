@@ -37,7 +37,9 @@ function ShowArticles() {
         axios.get(`http://localhost:8082/api/articles/`)
         .then(response => {
             setArticles(response.data);
-            setLoading(false);
+            setTimeout(() => {
+                setLoading(false);
+            }, 1500);
         })
         .catch(err => {
             console.log(err);
@@ -47,16 +49,20 @@ function ShowArticles() {
 
     if (loading) {
         return (
-            <div className='container-fluid text-center'>
-                <h3>Loading articles...</h3>
+            <div className='container-fluid text-center loading-screen vert-center'>
+                <h3 className='text-header'>Loading articles...</h3>
+                <br />
+                <div className='spinner-border' role='status'>
+                    <span className='visually-hidden'>Loading...</span>
+                </div>
             </div>
         );
     }
 
     if (articles.length === 0) {
         return (
-            <div className='container-fluid text-center'>
-                <h3>There are currently no articles in SPEED.</h3>
+            <div className='container-fluid text-center vert-center'>
+                <h3 className='text-header'>There are currently no articles in SPEED.</h3>
                 <br />
                 <Link href='/submit' className='btn btn-primary btn-lg'>Submit an article</Link>
             </div>

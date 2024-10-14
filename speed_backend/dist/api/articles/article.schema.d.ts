@@ -4,9 +4,9 @@ export declare class Article {
     title: string;
     author: string;
     journal_name: string;
-    publication_year: number;
-    volume: number;
-    pages: number;
+    publication_year: string;
+    volume: string;
+    pages: string;
     doi: string;
     se_relevancy: boolean;
     peer_reviewed: boolean;
@@ -17,6 +17,7 @@ export declare class Article {
     participant: string;
     research_type: string;
     analysis_flag: boolean;
+    rejection_reason: string;
     status: string;
     updated_date: Date;
 }

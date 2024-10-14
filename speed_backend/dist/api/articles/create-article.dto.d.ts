@@ -16,6 +16,7 @@ export declare class CreateArticleDto {
     participant: string;
     research_type: string;
     analysis_flag: boolean;
+    rejection_reason: string;
     status: string;
     updated_date: Date;
 }
