@@ -4,16 +4,23 @@ export declare class Article {
     title: string;
     author: string;
     journal_name: string;
-    publication_year: number;
-    volume: number;
-    pages: number;
+    publication_year: string;
+    volume: string;
+    pages: string;
     doi: string;
-    status: string;
-    updated_date: Date;
+    se_relevancy: boolean;
+    se_category: string;
+    peer_reviewed: boolean;
     moderation_flag: boolean;
-    analysis_flag: boolean;
     claims: string;
     evidence: string;
+    evidence_result: boolean;
+    participant: string;
+    research_type: string;
+    analysis_flag: boolean;
+    rejection_reason: string;
+    status: string;
+    updated_date: Date;
 }
 export declare const ArticleSchema: import("mongoose").Schema<Article, import("mongoose").Model<Article, any, any, any, import("mongoose").Document<unknown, any, Article> & Article & {
     _id: import("mongoose").Types.ObjectId;

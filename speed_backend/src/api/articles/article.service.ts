@@ -11,7 +11,7 @@ export class ArticleService {
 
   // route testing
   test(): string {
-    return 'Artlice route testing...';
+    return 'Article route testing...';
   }
 
   // return list of all articles

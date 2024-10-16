@@ -28,15 +28,15 @@ __decorate([
 ], Article.prototype, "journal_name", void 0);
 __decorate([
     (0, mongoose_1.Prop)(({ required: true })),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], Article.prototype, "publication_year", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], Article.prototype, "volume", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], Article.prototype, "pages", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ required: true }),
@@ -44,20 +44,20 @@ __decorate([
 ], Article.prototype, "doi", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
-    __metadata("design:type", String)
-], Article.prototype, "status", void 0);
+    __metadata("design:type", Boolean)
+], Article.prototype, "se_relevancy", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: Date, default: Date.now }),
-    __metadata("design:type", Date)
-], Article.prototype, "updated_date", void 0);
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Article.prototype, "se_category", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", Boolean)
+], Article.prototype, "peer_reviewed", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", Boolean)
 ], Article.prototype, "moderation_flag", void 0);
-__decorate([
-    (0, mongoose_1.Prop)(),
-    __metadata("design:type", Boolean)
-], Article.prototype, "analysis_flag", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
@@ -66,6 +66,34 @@ __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
 ], Article.prototype, "evidence", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", Boolean)
+], Article.prototype, "evidence_result", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Article.prototype, "participant", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Article.prototype, "research_type", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", Boolean)
+], Article.prototype, "analysis_flag", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Article.prototype, "rejection_reason", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Article.prototype, "status", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Date, default: Date.now }),
+    __metadata("design:type", Date)
+], Article.prototype, "updated_date", void 0);
 exports.Article = Article = __decorate([
     (0, mongoose_1.Schema)()
 ], Article);

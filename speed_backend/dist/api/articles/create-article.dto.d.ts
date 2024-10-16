@@ -7,7 +7,17 @@ export declare class CreateArticleDto {
     volume: string;
     pages: string;
     doi: string;
+    se_relevancy: boolean;
+    se_category: string;
+    peer_reviewed: boolean;
+    moderation_flag: boolean;
+    claims: string;
+    evidence: string;
+    evidence_result: boolean;
+    participant: string;
+    research_type: string;
+    analysis_flag: boolean;
+    rejection_reason: string;
     status: string;
-    submitted_date: Date;
     updated_date: Date;
 }

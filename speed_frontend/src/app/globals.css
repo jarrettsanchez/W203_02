@@ -15,20 +15,23 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
-/* 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-} 
-*/
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.vert-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh; /* Full viewport height */
+  text-align: center;
+  flex-direction: column;
+}
+
+.text-header {
+  font-size: xx-large;
+  font-weight: 600;
 }
