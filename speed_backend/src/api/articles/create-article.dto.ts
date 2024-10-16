@@ -11,10 +11,11 @@ export class CreateArticleDto {
     doi: string;
     
     se_relevancy: boolean;
+    se_category: string;
     peer_reviewed: boolean;
     moderation_flag: boolean;
 
-    claims: boolean;
+    claims: string;
     evidence: string;
     evidence_result: boolean;
     participant: string;

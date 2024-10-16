@@ -10,10 +10,11 @@ export type Article = {
     doi?: string;
 
     se_relevancy?: boolean;
+    se_category?: string;
     peer_reviewed?: boolean;
     moderation_flag?: boolean;
 
-    claims?: boolean;
+    claims?: string;
     evidence?: string;
     evidence_result?: boolean;
     participant?: string;
@@ -37,10 +38,11 @@ export const DefaultEmptyArticle: Article = {
     doi: '',
 
     se_relevancy: undefined,
+    se_category: '',
     peer_reviewed: undefined,
     moderation_flag: false,
 
-    claims: undefined,
+    claims: '',
     evidence: '',
     evidence_result: undefined,
     participant: '',

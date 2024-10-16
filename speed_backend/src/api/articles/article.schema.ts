@@ -32,6 +32,9 @@ export class Article {
   se_relevancy: boolean;
 
   @Prop()
+  se_category: string;
+
+  @Prop()
   peer_reviewed: boolean;
 
   @Prop()
@@ -39,7 +42,7 @@ export class Article {
 
   // analysis properties
   @Prop()
-  claims: boolean;
+  claims: string;
 
   @Prop()
   evidence: string;

@@ -48,6 +48,10 @@ __decorate([
 ], Article.prototype, "se_relevancy", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Article.prototype, "se_category", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", Boolean)
 ], Article.prototype, "peer_reviewed", void 0);
 __decorate([
@@ -56,7 +60,7 @@ __decorate([
 ], Article.prototype, "moderation_flag", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
-    __metadata("design:type", Boolean)
+    __metadata("design:type", String)
 ], Article.prototype, "claims", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),

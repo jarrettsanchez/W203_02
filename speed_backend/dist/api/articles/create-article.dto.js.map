@@ -1,1 +1,1 @@
-{"version":3,"file":"create-article.dto.js","sourceRoot":"","sources":["../../../src/api/articles/create-article.dto.ts"],"names":[],"mappings":";;;AAGA,MAAa,gBAAgB;CAuB5B;AAvBD,4CAuBC"}
+{"version":3,"file":"create-article.dto.js","sourceRoot":"","sources":["../../../src/api/articles/create-article.dto.ts"],"names":[],"mappings":";;;AAGA,MAAa,gBAAgB;CAwB5B;AAxBD,4CAwBC"}
