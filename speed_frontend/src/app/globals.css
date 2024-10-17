@@ -35,3 +35,11 @@
   font-size: xx-large;
   font-weight: 600;
 }
+
+.card-container {
+  cursor: pointer;
+  width: 50vw;
+  border-radius: 8px;
+  box-shadow: 2px 8px 16px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
