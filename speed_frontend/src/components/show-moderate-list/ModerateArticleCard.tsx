@@ -22,15 +22,15 @@ const ModerateArticleCard = ({ article: initialArticle }: IProp) => {
 
   const updateStatus = (newStatus: string, reason?: string) => {
     if (article?._id) {
-      // Update moderation_flag based on the new status
-      const moderationFlag = newStatus === "Moderated";
+      // Update moderation_flag to true regardless of whether the article is moderated or rejected
+      const moderationFlag = true; // Set to true for both moderation and rejection
 
       axios
         .put(`http://localhost:8082/api/articles/${article._id}`, {
           ...article,
           status: newStatus,
           rejection_reason: reason || article.rejection_reason, // Update rejection reason if provided
-          moderation_flag: moderationFlag, // Set moderation_flag to true if the status is "Moderated"
+          moderation_flag: moderationFlag, // Set moderation_flag to true
         })
         .then(() => {
           setArticle({
@@ -54,10 +54,14 @@ const ModerateArticleCard = ({ article: initialArticle }: IProp) => {
   return (
     <div className="card-container mb-4" onClick={onClick}>
       <div className="desc ml-4 mt-4">
-        <h3>{article.title}</h3>
+        <h3 className="card-header">{article.title}</h3>
         <p className="mb-0">
           <b>Author: </b>
           {article.author}
+        </p>
+        <p className="mb-0">
+          <b>DOI: </b>
+          {article.doi}
         </p>
         <p className="mb-0">
           <b>Publication Year: </b>

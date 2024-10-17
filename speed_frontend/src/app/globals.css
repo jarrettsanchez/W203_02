@@ -36,6 +36,11 @@
   font-weight: 600;
 }
 
+.card-header {
+  font-size: 24px;
+  font-weight: 600;
+}
+
 .card-container {
   cursor: pointer;
   width: 50vw;

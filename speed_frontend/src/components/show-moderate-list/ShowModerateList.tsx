@@ -33,7 +33,7 @@ function ShowModerateList() {
   return (
     <div className="ShowModerateArticleList">
       <div className="container">
-        <h2>Articles Pending Moderation</h2>
+        <h2 className="text-header">Articles Pending Moderation</h2>
         <br />
       </div>
 
