@@ -112,6 +112,8 @@ function ShowArticles() {
   };
 
   const columnHelper = createColumnHelper<Article>();
+  
+  //Filters 
   const columns = [
     columnHelper.accessor('title', {
       header: () => 'Title',
