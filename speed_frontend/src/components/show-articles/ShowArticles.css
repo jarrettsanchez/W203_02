@@ -1,5 +1,6 @@
 .theader {
     white-space: nowrap;
+    cursor: pointer;
   }
   
   .arrows {
@@ -17,30 +18,6 @@
   .text-header {
     font-size: xx-large;
     font-weight: 600;
-  }
-  
-  .filter-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 40px; 
-  }
-  
-  .filter-tag {
-    padding: 8px 12px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    cursor: pointer;
-    user-select: none;
-  }
-  
-  .filter-tag.active {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .filter-tag:hover {
-    background-color: #cce5ff;
   }
   
   .table-container {
