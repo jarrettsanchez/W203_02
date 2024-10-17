@@ -1,20 +1,72 @@
 .theader {
     white-space: nowrap;
-}
-
-.arrows {
+  }
+  
+  .arrows {
     margin-left: 5px;
-}
-
-.search-db {
+  }
+  
+  .search-db {
     width: 25%;
-}
-
-.filters {
+  }
+  
+  .filters {
     width: 50%;
-}
-
-.text-header {
+  }
+  
+  .text-header {
     font-size: xx-large;
     font-weight: 600;
+  }
+  
+  .filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px; 
+  }
+  
+  .filter-tag {
+    padding: 8px 12px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .filter-tag.active {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .filter-tag:hover {
+    background-color: #cce5ff;
+  }
+  
+  .table-container {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #fff;
+    margin-top: 40px; 
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .table th {
+    background-color: #f8f8f8;
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: #f1f1f1;
   }
