@@ -71,3 +71,24 @@
     background-color: #f1f1f1;
   }
   
+=======
+.theader {
+    white-space: nowrap;
+}
+
+.arrows {
+    margin-left: 5px;
+}
+
+.search-db {
+    width: 25%;
+}
+
+.filters {
+    width: 50%;
+}
+
+.text-header {
+    font-size: xx-large;
+    font-weight: 600;
+}
