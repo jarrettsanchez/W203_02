@@ -293,3 +293,5 @@ function ShowArticles() {
     </div>
   );
 }
+
+export default ShowArticles;
