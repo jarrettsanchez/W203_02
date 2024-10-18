@@ -13,7 +13,7 @@ function ModerateArticle() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8082/api/articles/${id}`)
+      .get(process.env.NEXT_PUBLIC_BACKEND_URL + `/api/articles/${id}`)
       .then((response) => {
         setArticle(response.data);
       })
@@ -41,7 +41,7 @@ function ModerateArticle() {
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    fetch(`http://localhost:8082/api/articles/${id}`, {
+    fetch(process.env.NEXT_PUBLIC_BACKEND_URL + `/api/articles/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(article),

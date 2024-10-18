@@ -26,12 +26,15 @@ const ModerateArticleCard = ({ article: initialArticle }: IProp) => {
       const moderationFlag = true; // Set to true for both moderation and rejection
 
       axios
-        .put(`http://localhost:8082/api/articles/${article._id}`, {
-          ...article,
-          status: newStatus,
-          rejection_reason: reason || article.rejection_reason, // Update rejection reason if provided
-          moderation_flag: moderationFlag, // Set moderation_flag to true
-        })
+        .put(
+          process.env.NEXT_PUBLIC_BACKEND_URL + `/api/articles/${article._id}`,
+          {
+            ...article,
+            status: newStatus,
+            rejection_reason: reason || article.rejection_reason, // Update rejection reason if provided
+            moderation_flag: moderationFlag, // Set moderation_flag to true
+          }
+        )
         .then(() => {
           setArticle({
             ...article,

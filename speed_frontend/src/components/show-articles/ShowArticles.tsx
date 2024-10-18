@@ -22,7 +22,7 @@ function ShowArticles() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8082/api/articles/`)
+      .get(process.env.NEXT_PUBLIC_BACKEND_URL + `/api/articles/`)
       .then((response) => {
         setArticles(response.data);
         setTimeout(() => {

@@ -10,7 +10,7 @@ function ShowModerateList() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8082/api/articles/`)
+      .get(process.env.NEXT_PUBLIC_BACKEND_URL + `/api/articles/`)
       .then((response) => {
         // Filter articles with moderation_flag set to false
         const filteredArticles = response.data.filter(
